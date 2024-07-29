@@ -14,7 +14,7 @@ public class XYZ {
             int pid = scanner.nextInt();
 
             System.out.println("enter price for product " +i);
-            int price = scanner.nextInt();
+            double price = scanner.nextDouble();
 
             System.out.println("enter quantity for product " +i);
             int quantity = scanner.nextInt();
@@ -23,23 +23,23 @@ public class XYZ {
             arr[i-1] = obj;
         }
         //Find highest price from array
-        int highestPrice = 0;
+        double highestPrice = 0;
         for (int i=0; i< arr.length; i++){
-            highestPrice = Math.max(highestPrice,arr[i].price);
+            highestPrice = Math.max(highestPrice,arr[i].getPrice());
         }
         for(int i=0; i< arr.length; i++){
-            if(arr[i].price == highestPrice){
-                System.out.println("Highest price is: "+ highestPrice + " and product id is: " + arr[i].pid);
+            if(arr[i].getPrice() == highestPrice){
+                System.out.println("Highest price is: "+ highestPrice + " and product id is: " + arr[i].getPid());
             }
         }
-        System.out.println("Final amount is" + getFinalAmount(arr));
+        System.out.println("Final amount is " + getFinalAmount(arr));
     }
     //Find final amount from array
-    public static int getFinalAmount(Product[] arr) {
-        int finalAmount = 0;
+    public static double getFinalAmount(Product[] arr) {
+        double finalAmount = 0;
 
         for (int i = 0; i < arr.length; i++) {
-            finalAmount = finalAmount + (arr[i].price * arr[i].quantity);
+            finalAmount = finalAmount + (arr[i].getPrice() * arr[i].getQuantity());
         }
         return finalAmount;
     }
